@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<input type="text" id="ip">
+<input type="button" value="Find sum" onclick="findSum()">
+
+<div id="op">  </div>
+<script>
+function sum(n){
+if(n==0) { return 0;}
+return n+sum(n-1);
+}
+function findSum(){
+let n=Number(document.getElementById("ip").value);
+let ans =sum(n);
+document.getElementById("op").innerHTML="Sum of " +n+ " numbers: "+ans;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Registration Form</title>
+
+<style>
+body {
+    background-color: lightgray;
+    font-family: Arial;
+    text-align: center;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+}
+
+td, th {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+input, select {
+    padding: 5px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Registration Form</h1>
+
+<form onsubmit="addData(event)">
+<table>
+
+<tr>
+<td>Name</td>
+<td><input type="text" id="name" required></td>
+</tr>
+
+<tr>
+<td>Phone</td>
+<td><input type="tel" id="phone" required></td>
+</tr>
+
+<tr>
+<td>Branch</td>
+<td>
+<select id="branch" required>
+<option value="">--Select--</option>
+<option>CSE</option>
+<option>ECE</option>
+<option>EEE</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>Course</td>
+<td>
+<select id="course" required>
+<option value="">--Select--</option>
+<option>HTML</option>
+<option>Java</option>
+<option>DBMS</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+<input type="submit" value="Add">
+</td>
+</tr>
+
+</table>
+</form>
+
+<h2>Student Details</h2>
+
+<table id="outputTable">
+<tr>
+<th>Name</th>
+<th>Phone</th>
+<th>Branch</th>
+<th>Course</th>
+</tr>
+</table>
+
+<script>
+function addData(event){
+    event.preventDefault(); // stop form reload
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let branch = document.getElementById("branch").value;
+    let course = document.getElementById("course").value;
+
+    let table = document.getElementById("outputTable");
+
+    let row = table.insertRow();
+
+    row.insertCell(0).innerHTML = name;
+    row.insertCell(1).innerHTML = phone;
+    row.insertCell(2).innerHTML = branch;
+    row.insertCell(3).innerHTML = course;
+
+    // clear form after adding
+    document.getElementById("name").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("branch").value = "";
+    document.getElementById("course").value = "";
+}
+</script>
+
+</body>
+</html>

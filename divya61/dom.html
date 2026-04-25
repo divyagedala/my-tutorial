@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DOM Example</title>
+
+<style>
+    #myTitle {
+        color: blue;
+        font-size: 22px;
+    }
+
+    .item {
+        color: green;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div>
+    <h1>DOM Access Example</h1>
+    <input type="button" value="Test Now" onclick="test()">
+</div>
+
+
+<p id="myTitle">Hello this is myTitle</p>
+
+<p class="item">Hey this is item 1</p>
+<p class="item">Hey this is item 2</p>
+
+<div id="op"></div>
+
+<script>
+function test(){
+
+
+    let title = document.getElementById("myTitle");
+
+
+    let items = document.getElementsByClassName("item");
+
+
+    let paragraphs = document.getElementsByTagName("p");
+
+
+    let firstItem = document.querySelector(".item");
+
+
+    let output = "";
+
+    output += "<h3>Access by ID:</h3>" + title.innerHTML + "<br><br>";
+
+    output += "<h3>Access by Class:</h3>";
+    for(let i = 0; i < items.length; i++){
+        output += items[i].innerHTML + "<br>";
+    }
+
+    output += "<br><h3>Access by Tag:</h3>";
+    for(let i = 0; i < paragraphs.length; i++){
+        output += paragraphs[i].innerHTML + "<br>";
+    }
+
+    output += "<br><h3>Query Selector (first .item):</h3>";
+    output += firstItem.innerHTML;
+
+    document.getElementById("op").innerHTML = output;
+}
+</script>
+
+</body>
+</html>

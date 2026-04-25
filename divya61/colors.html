@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Var vs Let</title>
+</head>
+
+<body>
+
+<a href="../mern/tutorial.html">Home</a>
+
+<div>
+    <h1>Var vs Const</h1>
+    <input type="button" value="Test Now" onclick="test()">
+</div>
+
+<div id="op"></div>
+
+<script>
+function test(){
+
+    // VAR example
+    var colors = ["red", "blue", "green"];
+    {
+        var colors = ["red", "pink", "green"];
+    }
+    let varResult = colors[1]; // pink
+
+    // CONST example
+    const colour = ["red", "blue", "green"];
+    {
+        const colour = ["red", "pink", "green"];
+    }
+    let constResult = colour[1]; // blue
+
+    // Display on page
+    document.getElementById("op").innerHTML = 
+        "<b>Using var:</b> " + varResult + "<br><br>" +
+        "<b>Using const:</b> " + constResult;
+
+    // Also in console
+    console.log("var:", varResult);
+    console.log("const:", constResult);
+}
+</script>
+
+</body>
+</html>

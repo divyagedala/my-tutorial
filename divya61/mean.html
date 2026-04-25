@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<a href="../mern/tutorial.html">Home</a>
+</head>
+<body bgcolor="lightgray">
+
+<div>
+ Enter array elements:
+ <input type="text" id="ip"/>
+ <button onclick="testFunction()">Test</button>
+</div>
+
+<div id="res"></div>
+<div id="res1"></div>
+
+<script>
+function testFunction() {
+
+    var l = document.getElementById("ip").value.split(' ').map(Number);
+
+    let total = 0;
+    for (let i of l) {
+        total += i;
+    }
+    let mean = total / l.length;
+
+
+    l.sort((a, b) => a - b); // sort numbers
+    let median;
+
+    if (l.length % 2 === 0) {
+
+        let mid1 = l[l.length / 2 - 1];
+        let mid2 = l[l.length / 2];
+        median = (mid1 + mid2) / 2;
+    } else {
+
+        median = l[Math.floor(l.length / 2)];
+    }
+
+
+    document.getElementById("res").innerHTML = "Mean: " + mean;
+    document.getElementById("res1").innerHTML = "Median: " + median;
+}
+</script>
+
+</body>
+</html>

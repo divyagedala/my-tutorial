@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<a href="../mern/tutorial.html">Home</a>
+</head>
+<body>
+
+<script>
+var ar = [175, 50, 25];
+function subofArray(total, num){
+	return total-num;
+}
+function myCampus(item){
+	console.log(ar.reduce(subofArray));
+	console.log(ar.reduceRight(subofArray));
+	console.log(ar.reduce(subofArray,500));
+}
+myCampus();
+
+const A =[-2, 10, -3, -1, 20, 50];
+const res = A.filter(x => x>0).reduce((a,b) => a+b);  /* 10+20+80*/
+const res1 = A.filter(x => x>0).reduce((a,b) => a-b); /* 10-20-50 */
+const res2 = A.sort((a,b) => b-a);
+console.log(res);
+console.log(res1);
+console.log(res2);
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<div>
+<form action = "">
+<input type="text" id="ip">
+<input type="button" value="start now" onclick="test()">
+
+</form>
+</div>
+<div id="op">  </div>
+<script>
+function test(){
+var num=document.getElementById("ip").value;
+alert(num);
+document.getElementById("op").innerHTML="entered number:"+num;
+var a=10,b=20;
+var c=a+b;
+let s="Meghana"
+alert('Sum: '+c);
+alert('Name: '+s);
+if(a%2==0) {alert('Even');}
+else {alert('Odd');}
+var n=3,res="";
+for(let i=0;i<n;i++) {res+="hi ";}
+alert("String: "+res);
+var num1=Number(num);
+var pattern="";
+for(let i=1;i<=num1;i++){
+for(let j=1;j<=i;j++){
+pattern+="* ";
+}
+pattern+="<br>";
+}
+document.getElementById("op").innerHTML =
+"Entered Number: " + num1 + "<br><br>" + pattern;
+}
+</script>
+</body>
+</html>

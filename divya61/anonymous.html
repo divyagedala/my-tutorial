@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<a href="../mern/tutorial.html">Home</a>
+</head>
+<body>
+<div id="demo"></div>
+<script>
+let output = document.getElementById('demo');
+function test2(){
+	output.innerHTML += '<br>test2 started!';
+	output.innerHTML += '<br>test2 finished';
+}
+function test1(){
+	output.innerHTML +='test1 started!';
+	test2();
+	output.innerHTML += '<br>test1 finished';
+}
+test1()
+
+function wishMe(name, callback){
+	console.log('Hello ' +name);
+	callback();
+}
+function testCallBack(){
+	console.log('callback example');
+}
+wishMe('Divya', testCallBack);
+
+
+const greet=(name = "From CCC") =>"Hello, " +name;
+console.log(greet());
+console.log(greet("Divya"));
+let test = ()=>{
+	console.log("No arguments example");
+}
+
+const sum=(x,y)=>x+y;
+console.log(sum(61,22));
+
+let greets = function(){
+	console.log('Have fun have a Good Day!😊');
+};
+greets();
+
+setTimeout(function(){
+	console.log('It took 1 second for you to see me')
+},1000);
+
+
+</script>
+</body>
+</html>

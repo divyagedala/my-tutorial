@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>String Operations</title>
+<a href="../mern/tutorial.html">Home</a>
+</head>
+<body>
+<div>
+	<h1>var Vs let</h1>
+	<input type = "button" value = "Test Now" onclick = "test()">
+</div>
+<div id = "op"> </div>
+<script>
+	function test(){
+		const a=30;
+		console.log(a);
+
+		{
+			const a =20;
+			console.log(a);
+			//const a =50;  //not allowed
+		}
+		console.log(a);
+	}
+</script>
+</body>
+</html>

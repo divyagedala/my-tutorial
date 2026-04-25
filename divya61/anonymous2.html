@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<a href="../mern/tutorial.html">Home</a>
+</head>
+<body>
+<div id = "demo" > </div>
+<div id ="output"></div>
+<script>
+let output = document.getElementById('demo');
+function wishMe(name, testCallBack){
+	output.innerHTML += '<br> Hello '+name;
+	testCallBack();
+}
+function testCallBack(){
+	output.innerHTML += '<br> callback example';
+}
+wishMe('Divya', testCallBack);
+
+let A= [10,20,30,35,45];
+const copy=[];
+A.forEach(function (A){
+	console.log(A+A+2);
+	copy.push(A+A+2);
+});
+console.log(copy);
+A.forEach(function (A){
+	console.log(A*A);
+});
+for(let i of A){
+	console.log(i);
+}
+
+
+const ages = [22, 33, 44, 12, 24, 17, 18, 19];
+for(let i of ages){
+	if(i>=18){
+		console.log(i);
+	}
+}
+const result = ages.filter((x) => x >= 18);
+document.getElementById("output").innerHTML = result;
+
+</script>
+</body>
+</html>

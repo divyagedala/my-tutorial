@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<div>
+<form action = "">
+<input type="text" id="ip">
+<input type="button" value="Calculate" onclick="test()">
+
+</form>
+</div>
+<div id="op">  </div>
+<script>
+function test(){
+var n=document.getElementById("ip").value;
+var nstart = "<b style='color:blue'>";
+var nend = "</b>";
+document.getElementById("op").innerHTML= nstart+n+nend ;
+<!--let n=Number(document.getElementById("ip").value); let ans=n*(n-2)/8; document.getElementById("op").innerHTML="Base: " +n+ "<br>" + "Total Squares: " +ans;-->
+}
+</script>
+</body>
+</html>

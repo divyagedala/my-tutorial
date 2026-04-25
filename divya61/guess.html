@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<a href="../mern/tutorial.html">Home</a>
+    <title>Guess the Number Game</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f2f2f2;
+            margin-top: 50px;
+        }
+        #game {
+            background: white;
+            padding: 20px;
+            width: 320px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+        input, button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 80%;
+        }
+        #msg {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="game">
+    <h2>Guess the Number</h2>
+    <p>Guess a number between <b>1 and 100</b></p>
+    
+    <input type="number" id="guess" placeholder="Enter your guess">
+    <br>
+    <button onclick="checkGuess()">Submit</button>
+
+    <p id="msg"></p>
+    <p id="prize"></p>
+</div>
+
+<script>
+    let min = 1;
+    let max = 100;
+
+    let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    let prizeMoney = 100;
+    let decrement = 10;
+
+    document.getElementById("prize").innerText = "Prize: ₹" + prizeMoney;
+
+    function checkGuess() {
+        let userGuess = Number(document.getElementById("guess").value);
+        let message = document.getElementById("msg");
+
+        if (prizeMoney <= 0) {
+            message.innerText = "Game Over! Prize is ₹0";
+            return;
+        }
+
+        if (!userGuess) {
+            message.innerText = "Please enter a number!";
+            return;
+        }
+
+        if (userGuess === randomNumber) {
+            message.innerText = "🎉 Correct! You won ₹" + prizeMoney;
+            return;
+        }
+
+        prizeMoney -= decrement;
+
+        if (prizeMoney <= 0) {
+            message.innerText = "Game Over! The number was " + randomNumber;
+            document.getElementById("prize").innerText = "Prize: ₹0";
+            return;
+        }
+
+        let difference = Math.abs(userGuess - randomNumber);
+        let hint = "";
+
+        if (difference <= 2) {
+            hint = "🔥 Too Near!";
+        } else if (difference <= 5) {
+            hint = "😊 Very Close!";
+        } else if (difference <= 10) {
+            hint = "🙂 Close!";
+        } else if (difference <= 20) {
+            hint = "😐 Far!";
+        } else {
+            hint = "❄️ Too Far!";
+        }
+
+        if (userGuess < randomNumber) {
+            message.innerText = hint + " Try Bigger Number!";
+        } else {
+            message.innerText = hint + " Try Smaller Number!";
+        }
+
+        document.getElementById("prize").innerText = "Prize: ₹" + prizeMoney;
+        document.getElementById("guess").value = "";
+    }
+</script>
+
+</body>
+</html>

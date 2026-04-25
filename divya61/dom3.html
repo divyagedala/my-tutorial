@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Learning</title>
+</head>
+<body>
+
+<h2 id="myTitle">Welcome</h2>
+
+<p class="item">Item 1</p>
+<p class="item">Item 2</p>
+
+<img id="myImage" src="C:\Users\yasod\Downloads\elephant.jpg" width="120"><br><br>
+
+<a id="myLink" href="https://microsoft.com">Click Link</a><br><br>
+
+<div id="op">Output Area</div><br>
+
+<!-- Buttons -->
+<button onclick="changeText()">Change Text</button>
+<button onclick="changeStyle()">Change Style</button>
+<button onclick="changeImage()">Change Image</button>
+<button onclick="changeLink()">Change Link</button>
+<button onclick="addElement()">Add Element</button>
+<button onclick="removeElement()">Remove Element</button>
+<button onclick="useSelector()">Use Query Selector</button>
+
+<script>
+
+// 🔹 1. Change Content
+function changeText() {
+    document.getElementById("op").textContent = "Text Changed!";
+}
+
+// 🔹 2. Change Style
+function changeStyle() {
+    let title = document.getElementById("myTitle");
+    title.style.color = "red";
+    title.style.fontSize = "30px";
+}
+
+// 🔹 3. Change Image
+function changeImage() {
+    document.getElementById("myImage").src = "C:\Users\yasod\Downloads\nature.jpg";
+}
+
+// 🔹 4. Change Link
+function changeLink() {
+    document.getElementById("myLink")
+            .setAttribute("href", "https://google.com");
+}
+
+// 🔹 5. Add Element
+function addElement() {
+    let p = document.createElement("p");
+    p.textContent = "New Paragraph Added!";
+    document.body.append(p);
+}
+
+// 🔹 6. Remove Element
+function removeElement() {
+    let item = document.getElementsByClassName("item")[0];
+    if(item) item.remove();
+}
+
+// 🔹 7. Query Selector
+function useSelector() {
+    let first = document.querySelector(".item");
+    if(first) first.style.color = "green";
+}
+
+</script>
+
+</body>
+</html>

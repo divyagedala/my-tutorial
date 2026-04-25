@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>String Operations</title>
+</head>
+<body>
+<h1>Enter words</h1>
+<input type= "text" id = "input" placeholder = "enter sentence">
+<br><br>
+<button onclick = "sortWords()">Sort words</button>
+<p id = "result"></p>
+<script>
+function sortWords(){
+let text = document.getElementById("input").value;
+let words = text.split(" ");
+words.sort(function(a,b) {
+return a.toLowerCase().localeCompare(b.toLowerCase());
+});
+let sortedText = words.join(" ");
+document.getElementById("result").innerHTML = sortedText ;
+}
+let sampleArray = ['cat', 6, 7.98];
+console.log(sampleArray);
+console.log(typeof(sampleArray));
+for(let i=0;i<sampleArray.length;i++){console.log(sampleArray[i]);}
+const ar = [{name : "Divya", lang :"Telugu"},{name : "yasodha", lang :"Telugu"},{name : "Priya", lang :"English"},{name : "Mahi", lang :"English"}];
+for(let i = 0; i < ar.length; i++) {
+  if(ar[i].lang == "English") {
+    console.log(ar[i].name);
+  }
+}
+for(let i=0;i<ar.length;i++){console.log(ar[i]);}
+const arr = {name : "Divya", lang :"Telugu"};
+console.log(arr["name"]);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<a href="../mern/tutorial.html">Home</a>
+</head>
+<body>
+
+<div>
+<form action="">
+<input type="text" id="ip">
+<input type="button" value="start now" onclick="test()">
+</form>
+</div>
+
+<div id="op"></div>
+
+<script>
+function test(){
+    var num = document.getElementById("ip").value;
+    var n = Number(num);
+
+    var tri = "";
+
+
+    for(let i = 1; i <= n; i++){
+        for(let j = 1; j <= i; j++){
+            tri += j + " ";
+        }
+        tri += "<br>";
+    }
+
+    var count = ((n-1)*(n-2))/2;
+
+    document.getElementById("op").innerHTML =
+        "n = " + n + "<br>" +
+        "Squares that fit: " + count + "<br><br>" +
+        tri;
+}
+</script>
+
+</body>
+</html>

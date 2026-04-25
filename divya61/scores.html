@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mean Score</title>
+</head>
+
+<body bgcolor="lightgray">
+
+<a href="../mern/tutorial.html">Home</a>
+
+<h2>Check Console for Output</h2>
+
+<script>
+const input = [
+    { name: "Divya", scores: [100, 89, 90] },
+    { name: "Navya", scores: [90, 89, 80] },
+    { name: "Kavya", scores: [80, 89, 70] },
+    { name: "Yasodha", scores: [100, 89, 100] },
+    { name: "Madhu", scores: [94, 96, 90] }
+];
+
+// Calculate average for each student
+const result = input.map(p => {
+    let sum = p.scores.reduce((a, b) => a + b, 0);
+    let avg = sum / p.scores.length;
+    return { name: p.name, average: avg };
+});
+
+// Filter students with average >= 90
+const highScorers = result.filter(p => p.average >= 90);
+
+// Display result
+console.log(highScorers);
+</script>
+
+</body>
+</html>

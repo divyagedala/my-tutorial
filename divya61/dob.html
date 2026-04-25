@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday Message Generator</title>
+</head>
+<body>
+
+<h2>Enter Your Date of Birth</h2>
+
+<input type="date" id="dob">
+<br><br>
+
+<button onclick="showMessage()">Get Message</button>
+
+<p id="result"></p>
+
+<script>
+function showMessage() {
+    let dob = document.getElementById("dob").value;
+
+    if (!dob) {
+        document.getElementById("result").innerHTML = "Please enter your Date of Birth!";
+        return;
+    }
+
+    let birthdayMessages = [
+        "🎉 Today is your special day! Enjoy every moment!",
+        "🎂 Happy Birthday! Keep shining!",
+        "🥳 Party time! It's your birthday!",
+        "🎁 Time to eat cake and celebrate!"
+    ];
+
+    let teaseMessages = [
+        "😜 Relax... your birthday is still %d days away!",
+        "😂 Why so excited? Still %d days to go!",
+        "🙃 Counting days already? %d more to suffer!",
+        "😏 Patience! Only %d days left!",
+        "🤣 Not today! Wait for %d more days!"
+    ];
+
+    let niceMessages = [
+        "😊 You are an amazing person!",
+        "✨ Keep spreading positivity!",
+        "🌟 You make the world better!",
+        "💖 Stay happy and keep smiling!"
+    ];
+
+    let today = new Date();
+    let inputDate = new Date(dob);
+
+    let thisYearBirthday = new Date(
+        today.getFullYear(),
+        inputDate.getMonth(),
+        inputDate.getDate()
+    );
+
+    if (thisYearBirthday < today) {
+        thisYearBirthday.setFullYear(today.getFullYear() + 1);
+    }
+
+    let diffTime = thisYearBirthday - today;
+    let daysLeft = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    if (daysLeft === 0) {
+        let randomIndex = Math.floor(Math.random() * birthdayMessages.length);
+        document.getElementById("result").innerHTML = birthdayMessages[randomIndex];
+    }
+    
+    else if (daysLeft <= 30) {
+        let randomIndex = Math.floor(Math.random() * teaseMessages.length);
+        let message = teaseMessages[randomIndex].replace("%d", daysLeft);
+        document.getElementById("result").innerHTML = message;
+    }
+   
+    else {
+        let randomIndex = Math.floor(Math.random() * niceMessages.length);
+        document.getElementById("result").innerHTML = niceMessages[randomIndex];
+    }
+}
+</script>
+
+</body>
+</html>

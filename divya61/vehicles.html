@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<a href="../mern/tutorial.html">Home</a>
+</head>
+<body>
+
+<div id="output"></div>
+
+<script>
+const veh = ['Bus', 'Truck', 'Car', 'Bike', 'Thar'];
+
+const display = veh.map(item => {
+    return '<li>' + item + '</li>';
+});
+
+const result = '<ul>' + display.join('') + '</ul>';
+
+document.getElementById("output").innerHTML = result;
+</script>
+
+</body>
+</html>

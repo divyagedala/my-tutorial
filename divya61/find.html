@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body bgcolor= "lightgray">
+<div>
+ Enter array elements <input type = "text" id="ip"/>
+<button onclick = "testFunction()"> Test</button>
+</div><div id = "res" > </div>
+</div><div id = "res1" > </div>
+
+<script>
+function testFunction(){
+	var l = document.getElementById("ip").value.split(' ');
+	console.log(l);
+	console.log(l.find(k => k<=18));
+	console.log(l.filter(p => p>=18));
+	var n =l.filter(p => p>=18);
+	var j = l.find(q => q<=18);
+	/* console.log(l.find(checkage)); */
+	document.getElementById("res").innerHTML= j;
+	document.getElementById("res1").innerHTML= n;
+
+		
+}
+/* function checkage(age){ return age>18 } */ 
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<a href="../mern/tutorial.html">Home</a>
+</head>
+<body bgcolor= "lightgray">
+<div class="nav">
+    <a href="../index.html">Home</a>
+</div>
+<script>
+const input = [{ name: "Divya", age:20}, { name: "Navya", age:26}, { name: "Kavya", age:21}, { name: "Yasodha", age:25}, { name: "Madhu", age:26}];
+
+const ages = input.map(p => p.age);
+
+const oldestAge = Math.max(...ages);
+const youngestAge = Math.min(...ages);
+
+const oldestPerson = input.find(p => p.age === oldestAge);
+const youngestPerson = input.find(p => p.age === youngestAge);
+
+const ageDifference = oldestAge - youngestAge;
+
+console.log("Oldest:", oldestPerson.name, "at", oldestAge, "years old");
+console.log("Youngest:", youngestPerson.name, "at", youngestAge, "years old");
+console.log("Age Difference:", ageDifference, "years");	
+</script>
+</body>
+</html>
